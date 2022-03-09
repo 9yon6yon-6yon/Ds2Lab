@@ -1,32 +1,60 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-struct problemset
+struct setoftestCases
 {
-    int s1;
-    int s2;
-    int s3;
+    vector<pair<string, int>> finalOutput;
 };
 
+bool compare(pair<string, int> a, pair<string, int> b)
+{
+    return a.second < b.second;
+}
 int main()
 {
 
-    int n;
-    cin >> n;
-    struct problemset problms[n];
-    for (int i = 0; i < n; i++)
+    int testCase;
+    cin >> testCase;
+    // array of sorted vector
+    struct setoftestCases sotc[testCase];
+
+    for (int i = 0; i < testCase; i++)
     {
-        int m;
-        cin >> m;
-
-        string s[m * 3];
-        int sol[m * 3];
-        for (int j = 0; j < m * 3; j++)
+        int n; // number of problem in each divition
+        map<string, int> problemsets;
+        cin >> n;
+        for (int j = 0; j < 3 * n; j++)
         {
-            cin >> s[j];
-            cin >> sol[j];
-        }
-    }
+            string code;
+            int noOfSubmissions;
+            cin >> code;
+            cin >> noOfSubmissions;
+            if (problemsets.find(code) != problemsets.end())
+            {
 
+                problemsets.find(code)->second = problemsets.find(code)->second + noOfSubmissions;
+            }
+            // find() function
+            else
+            {
+                problemsets.insert({code, noOfSubmissions});
+            }
+        }
+        vector<pair<string, int>> sortedVector;//FOR SORTING THE MAP
+        for (auto &i : problemsets)
+        {
+            sortedVector.push_back(i);
+        }
+        sort(sortedVector.begin(), sortedVector.end(), compare);
+        sotc[i].finalOutput = sortedVector;
+    } // output
+    for (int i = 0; i < testCase; i++)
+    {
+        for (auto &j : sotc[i].finalOutput)
+        {
+            cout << j.second << " ";
+        }
+        cout << endl;
+    }
     return 0;
 }
