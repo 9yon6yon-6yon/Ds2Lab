@@ -62,3 +62,4 @@ there exists an integer constant n0 ≥ 1 such that f(n) ≥ c · g(n) for every
 Definition (Big–Theta, Θ()): Let f(n) and g(n) be functions that map positive integers to positive
 real numbers. We say that f(n) is Θ(g(n)) (or f(n) ∈ Θ(g(n))) if and only if f(n) ∈ O(g(n)) and
 f(n) ∈ Ω(g(n))
+https://brilliant.org/wiki/master-theorem/   
