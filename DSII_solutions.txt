@@ -51,4 +51,14 @@ algebra to reach the right side of the equation. 1+2+...+(k+1)=1+2+...+k+(k+1)
 
 
 
+Definition (Big–O, O()): Let f(n) and g(n) be functions that map positive integers to positive real
+numbers. We say that f(n) is O(g(n)) (or f(n) ∈ O(g(n))) if there exists a real constant c > 0 and there
+exists an integer constant n0 ≥ 1 such that f(n) ≤ c ∗ g(n) for every integer n ≥ n0.
 
+Definition (Big–Omega, Ω()): Let f(n) and g(n) be functions that map positive integers to positive
+real numbers. We say that f(n) is Ω(g(n)) (or f(n) ∈ Ω(g(n))) if there exists a real constant c > 0 and
+there exists an integer constant n0 ≥ 1 such that f(n) ≥ c · g(n) for every integer n ≥ n0.
+
+Definition (Big–Theta, Θ()): Let f(n) and g(n) be functions that map positive integers to positive
+real numbers. We say that f(n) is Θ(g(n)) (or f(n) ∈ Θ(g(n))) if and only if f(n) ∈ O(g(n)) and
+f(n) ∈ Ω(g(n))
