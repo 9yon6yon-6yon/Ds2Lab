@@ -45,7 +45,7 @@ void MERGESORT(int arr[], int lb, int ub)
         int mid = (lb + ub) / 2;
         MERGESORT(arr, lb, mid);
         MERGESORT(arr, mid + 1, ub);
-        merge(arr, lb, ub);
+      //  merge(arr, lb, ub);
     }
 }
 
