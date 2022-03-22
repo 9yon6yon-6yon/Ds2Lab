@@ -12,11 +12,9 @@ int violations(int data[], int n)
 
         while (j >= 0 && data[j] > key)
         {
-            data[j + 1] = data[j];
             j = j - 1;
             count++;
         }
-        data[j + 1] = key;
     }
     return count;
 }
