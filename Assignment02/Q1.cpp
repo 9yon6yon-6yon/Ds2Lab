@@ -20,7 +20,7 @@ struct Graph
 		edges.push_back({w, {u, v}});
 	}
 
-	int kruskalMST();
+	int MSTkruskal();
 };
 
 struct DisjointSets
@@ -64,7 +64,7 @@ struct DisjointSets
 };
 
 
-int Graph::kruskalMST()
+int Graph::MSTkruskal()
 {
 	int mst_wt = 0; 
 	sort(edges.begin(), edges.end());
@@ -114,7 +114,7 @@ int main()
 	g.addEdge(7, 8, 7);
 
 	cout << "Edges of MST are \n";
-	int result= g.kruskalMST();
+	int result= g.MSTkruskal();
 
 	cout << "\nWeight of MST is " << result;
 
