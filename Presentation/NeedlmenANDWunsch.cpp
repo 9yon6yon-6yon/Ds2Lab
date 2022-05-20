@@ -1,36 +1,30 @@
-
-#include <stdio.h>
-#include <math.h>
-#include <string.h>
-#include <time.h>
-#include <iostream>
-#include <vector>
-#include <list>
-#include <string>
-#include <algorithm>
-#include <queue>
-#include <stack>
-#include <set>
-#include <map>
-#include <complex>
-
+//Libraries
+#include<bits/stdc++.h>
 #define MAX_N 1001
-
-#define DPRINTC(C) printf(#C " = %c\n", (C))
-#define DPRINTS(S) printf(#S " = %s\n", (S))
-#define DPRINTD(D) printf(#D " = %d\n", (D))
-#define DPRINTLLD(LLD) printf(#LLD " = %lld\n", (LLD))
-#define DPRINTLF(LF) printf(#LF " = %.5lf\n", (LF))
 
 using namespace std;
 typedef long long lld;
 typedef unsigned long long llu;
-
+//initializig values
 int n, m;
 int match_score, mismatch_score, gap_score;
 string A, B;
 int dp[MAX_N][MAX_N];
-
+inline int needleman_wunsch();
+inline pair<string, string> get_optimal_alignment();
+//main function
+int main()
+{
+    n = 5, m = 6;
+    match_score = 2, mismatch_score = 1, gap_score = 1;
+    A = "CATGT";
+    B = "ACGCTG";
+    printf("%d\n",needleman_wunsch());
+    pair<string, string> alignment = get_optimal_alignment();
+    printf("%s\n%s\n", alignment.first.c_str(), alignment.second.c_str());
+    return 0;
+}
+//Needleman Wunsch Algorithm
 inline int needleman_wunsch()
 {
     for (int i=0;i<=n;i++) dp[i][0] = dp[0][i] = -i * gap_score;
@@ -44,7 +38,7 @@ inline int needleman_wunsch()
     }
     return dp[n][m];
 }
-
+//Sequence Alignment
 inline pair<string, string> get_optimal_alignment()
 {
     string retA, retB;
@@ -95,16 +89,4 @@ inline pair<string, string> get_optimal_alignment()
         SB.pop();
     }
     return make_pair(retA, retB);
-}
-
-int main()
-{
-    n = 5, m = 6;
-    match_score = 2, mismatch_score = 1, gap_score = 1;
-    A = "CATGT";
-    B = "ACGCTG";
-    printf("%d\n",needleman_wunsch());
-    pair<string, string> alignment = get_optimal_alignment();
-    printf("%s\n%s\n", alignment.first.c_str(), alignment.second.c_str());
-    return 0;
 }
